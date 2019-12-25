@@ -1,0 +1,147 @@
+<DOCTYPE! html>
+    <html>
+
+    <head>
+    <title>Cipher</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-teal.min.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <style>
+        h5 {
+            font-weight: 400
+        }
+        .invisible {
+            display: none
+        }
+    </style>
+</head>
+
+<body> 
+    <h3 style="top:10px;">Cipher</h3>
+    <h5 style="font-weight: 300">The simplest way to encode and decode with classic and new Ciphers</h5>
+    <br><br>
+    <button id="caesarButton" type="button" class="mdl-chip" style="background-color: rgba(158, 158, 158, 0.2)">
+        <span class="mdl-chip__text">Caesar Cipher</span>
+    </button>
+    <button id="vigenereButton" type="button" class="mdl-chip" style="background-color: rgba(158, 158, 158, 0.2)">
+        <span class="mdl-chip__text">Vigenère Cipher</span>
+    </button>
+    <br><br><br><br><br><br>
+    <!-- Caesar -->
+    <div id="caesarCard" class="demo-card-wide mdl-card mdl-shadow--16dp" style="margin: 0 auto; border-radius: 20px; width: 500px; height: 35%">
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+            <div class="mdl-tabs__tab-bar">
+                <a href="#caesarDecrypt" class="mdl-tabs__tab is-active">Decrypt</a>
+                <a href="#caesarEncrypt" class="mdl-tabs__tab">Encrypt</a>
+                <a href="#caesarKeyT" class="mdl-tabs__tab">Get Key</a>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="caesarDecrypt">
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="caesarTextD">
+                    <label class="mdl-textfield__label" for="caesarTextD">String to decrypt</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="caesarKeyD">
+                    <label class="mdl-textfield__label" for="caesarKeyD">Key</label>
+                    <span class="mdl-textfield__error">Input is not a number!</span>
+                </div> <br>
+                <button class="caesarDecryptButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Decrypt
+                </button>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="caesarEncrypt">
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="caesarTextE">
+                    <label class="mdl-textfield__label" for="caesarTextE">String to encrypt</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="caesarKeyE">
+                    <label class="mdl-textfield__label" for="caesarKeyE">Key</label>
+                    <span class="mdl-textfield__error">Input is not a number!</span>
+                </div> <br>
+                <button class="caesarEncryptButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Encrypt
+                </button>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="caesarKeyT">
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="cTextK">
+                    <label class="mdl-textfield__label" for="cTextK">Original String/Letter</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="cText2K">
+                    <label class="mdl-textfield__label" for="cText2K">Encrypted String/Letter</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div> <br>
+                <button class="caesarKeyButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Get The Key
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Caesar -->
+    <!-- Vigenere -->
+    <div id="vigenereCard" class="demo-card-wide mdl-card mdl-shadow--16dp" style="margin: 0 auto; border-radius: 20px; width: 500px; height: 35%">
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+            <div class="mdl-tabs__tab-bar">
+                <a href="#vigenereDecrypt" class="mdl-tabs__tab is-active">Decrypt</a>
+                <a href="#vigenereEncrypt" class="mdl-tabs__tab">Encrypt</a>
+                <a href="#vigenereKeyT" class="mdl-tabs__tab">Get Key</a>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="vigenereDecrypt">
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="vigenereTextD">
+                    <label class="mdl-textfield__label" for="vigenereTextD">String to decrypt</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div>
+                 <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="vigenereTextD2">
+                    <label class="mdl-textfield__label" for="vigenereTextD2">Key String</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div> <br>
+                <button class="vigenereDecryptButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Decrypt
+                </button>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="vigenereEncrypt">
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="vigenereTextE">
+                    <label class="mdl-textfield__label" for="vigenereTextE">String to encrypt</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="vigenereTextE2">
+                    <label class="mdl-textfield__label" for="vigenereTextE2">Key String</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div> <br>
+                <button class="vigenereEncryptButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Encrypt
+                </button>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="vigenereKeyT">
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="vTextK">
+                    <label class="mdl-textfield__label" for="vTextK">Original String/Letter</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="vText2K">
+                    <label class="mdl-textfield__label" for="vText2K">Encrypted String/Letter</label>
+                    <span class="mdl-textfield__error">Input has something that is not a letter!</span>
+                </div> <br>
+                <button class="vigenereKeyButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Get The Key
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Vigenere -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="decrypt.js"></script>
+    <script src="script.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body></html>
