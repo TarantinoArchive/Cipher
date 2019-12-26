@@ -1,6 +1,5 @@
 <DOCTYPE! html>
-    <html>
-
+<html>
     <head>
     <title>Cipher</title>
     <link rel="stylesheet" href="style.css" />
@@ -16,7 +15,6 @@
         }
     </style>
 </head>
-
 <body> 
     <h3 style="top:10px;">Cipher</h3>
     <h5 style="font-weight: 300">The simplest way to encode and decode with classic and new Ciphers</h5>
@@ -29,7 +27,7 @@
     </button>
     <br><br><br><br><br><br>
     <!-- Caesar -->
-    <div id="caesarCard" class="demo-card-wide mdl-card mdl-shadow--16dp" style="margin: 0 auto; border-radius: 20px; width: 500px; height: 35%">
+    <div id="caesarCard" class="demo-card-wide mdl-card mdl-shadow--16dp invisible" style="margin: 0 auto; border-radius: 20px; width: 500px; height: 35%">
         <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
             <div class="mdl-tabs__tab-bar">
                 <a href="#caesarDecrypt" class="mdl-tabs__tab is-active">Decrypt</a>
@@ -68,7 +66,7 @@
             </div>
             <div class="mdl-tabs__panel is-active" id="caesarKeyT">
                 <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="cTextK">
+                    <input class="mdl-textfield__input" name="cTextK" type="text" pattern="-?[A-Za-z]*(\.[A-Za-z]+)?" id="cTextK">
                     <label class="mdl-textfield__label" for="cTextK">Original String/Letter</label>
                     <span class="mdl-textfield__error">Input has something that is not a letter!</span>
                 </div>
@@ -85,7 +83,7 @@
     </div>
     <!-- Caesar -->
     <!-- Vigenere -->
-    <div id="vigenereCard" class="demo-card-wide mdl-card mdl-shadow--16dp" style="margin: 0 auto; border-radius: 20px; width: 500px; height: 35%">
+    <div id="vigenereCard" class="demo-card-wide mdl-card mdl-shadow--16dp invisible" style="margin: 0 auto; border-radius: 20px; width: 500px; height: 35%">
         <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
             <div class="mdl-tabs__tab-bar">
                 <a href="#vigenereDecrypt" class="mdl-tabs__tab is-active">Decrypt</a>
@@ -143,5 +141,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="decrypt.js"></script>
     <script src="script.js"></script>
+    <script src="vigenereAlphabet.js"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-</body></html>
+</body>
+</html>

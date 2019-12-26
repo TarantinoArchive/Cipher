@@ -20,6 +20,7 @@ $(document).ready(function() {
       .css('color', 'black');
     $('.mdl-card').fadeOut();
     wait(500);
+    if ($('#caesarCard').hasClass('invisible')) $('#caesarCard').toggleClass('invisible');
     $('#caesarCard').fadeIn();
     $('#caesarButton')
       .css('transition', 'color 1s')
@@ -31,6 +32,7 @@ $(document).ready(function() {
       .css('color', 'black');
     $('.mdl-card').fadeOut();
     wait(500);
+    if ($('#vigenereCard').hasClass('invisible')) $('#vigenereCard').toggleClass('invisible');
     $('#vigenereCard').fadeIn();
     $('#vigenereButton')
       .css('transition', 'color 1s')
@@ -40,7 +42,6 @@ $(document).ready(function() {
     const word = document.getElementById('caesarTextE').value.toLowerCase();
     const key = parseInt(document.getElementById('caesarKeyE').value, 10) % 26;
     const decWord = encryptCaesar(word, key);
-    // eslint-disable-next-line no-alert
     alert(`The encrypted word is ${decWord}`);
   });
   $('.caesarDecryptButton').click(function() {
@@ -52,8 +53,25 @@ $(document).ready(function() {
   $('.caesarKeyButton').click(function() {
     const word1 = document.getElementById('cTextK').value.toLowerCase();
     const word2 = document.getElementById('cText2K').value.toLowerCase();
-    const ret = getCaesarKey(word1, word2);
-    console.log(word1);
-    alert(`The decrypted word is ${ret}`);
+    const key = getCaesarKey(word1, word2);
+    alert(`The encryption key is ${key}`);
+  });
+  $('.vigenereEncryptButton').click(function() {
+      const word1 = document.getElementById('vigenereTextE').value.toLowerCase();
+      const word2 = document.getElementById('vigenereTextE2').value.toLowerCase();
+      const decWord = encryptVigenere(word1, word2);
+      alert(`The encrypted word is ${decWord}`);
+  });
+  $('.vigenereDecryptButton').click(function() {
+      const word1 = document.getElementById('vigenereTextD').value.toLowerCase();
+      const word2 = document.getElementById('vigenereTextD2').value.toLowerCase();
+      const decWord = decryptVigenere(word1, word2);
+      alert(`The decrypted word is ${decWord}`);
+  });
+  $('.vigenereKeyButton').click(function() {
+      const word1 = document.getElementById('vTextK').value.toLowerCase();
+      const word2 = document.getElementById('vText2K').value.toLowerCase();
+      const decWord = keyVigenere(word1, word2);
+      alert(`The encryption key is ${decWord}`);
   });
 });
