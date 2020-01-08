@@ -728,3 +728,10 @@ var vigenereAlphabet = {
     z: 'y'
   }
 };
+
+function characterize(num) {
+  return String.fromCharCode(97 + num);
+}
+function alphabetize(char) {
+  return char.charCodeAt(0) - 97;
+}

@@ -15,6 +15,14 @@ function findSecondIndex(arr, firstIndex, el) {
   return false;
 }
 
+function multiplicativeInverse(a) {
+  let flag = 0;
+  for (let i = 0; i < 26; i++) if ((a * i) % 26 == 1) return i;
+}
+/*
+function multiplicativeInverse(a) {
+  return (1 - a) % 26;
+}*/
 function encryptCaesar(word, key) {
   let i;
   let finStr = '';
@@ -72,7 +80,7 @@ function decryptVigenere(word1, word2) {
   return decodedWord;
 }
 function keyVigenere(word1, word2) {
-  let decodedWord = ''; 
+  let decodedWord = '';
   for (let i = 0; i < word1.length; i++) {
     decodedWord = decodedWord + findSecondIndex(vigenereAlphabet, word1[i], word2[i]);
   }
@@ -81,4 +89,35 @@ function keyVigenere(word1, word2) {
       decodedWord = decodedWord.substring(0, i);
   }
   return decodedWord;
+}
+function encryptAffine(word, num1, num2) {
+  let decodedWord = '',
+    currChar;
+  for (let i = 0; i < word.length; i++) {
+    currChar = alphabetize(word[i]);
+    currChar = characterize((num1 * currChar + num2) % 26);
+    decodedWord = decodedWord + currChar;
+  }
+  return decodedWord;
+}
+function decryptAffine(word, num1, num2) {
+  let decodedWord = '',
+    currChar;
+  num1 = multiplicativeInverse(num1);
+  for (let i = 0; i < word.length; i++) {
+    currChar = alphabetize(word[i]);
+    currChar = characterize((num1 * (currChar - num2)) % 26);
+    decodedWord = decodedWord + currChar;
+  }
+  return decodedWord;
+}
+function keyAffine(word1, word2) {
+  for (let num1 = 0; i < 100; i++) {
+    for (let num2 = 0; i < 100; i++) {
+      if (encryptAffine(word1, num1, num2) == word2) {
+        return [num1, num2];
+      }
+    }
+  }
+  return [-9999, -9999];
 }
